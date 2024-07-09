@@ -2,13 +2,13 @@
 common-captcha
 ==============
 
-common-captcha 验证码程序，包括简单验证码和滑块验证码，基于用户行为验证
+common-captcha is a CAPTCHA program, including simple CAPTCHA and slider CAPTCHA, based on user behavior verification.
 
 Features
 ====================================
 
-- 简单验证码
-- 滑动拼图验证码
+- Simple CAPTCHA
+- Slider puzzle CAPTCHA
 
 Introduction
 ====================================
@@ -22,12 +22,12 @@ Install with pip:
 Preview
 ====================================
 
-滑块验证码
+Slider CAPTCHA
 
 https://github.com/Asamusummer/common_captcha/blob/main/%E6%BB%91%E5%8A%A8%E6%8B%BC%E5%9B%BE.gif
 
 
-点击文字验证
+Click word CAPTCHA
 
 https://github.com/Asamusummer/common_captcha/blob/main/%E7%82%B9%E9%80%89%E6%96%87%E5%AD%97.gif
 
@@ -35,7 +35,7 @@ https://github.com/Asamusummer/common_captcha/blob/main/%E7%82%B9%E9%80%89%E6%96
 How To Use?
 ====================================
 
-在此之前，你需要准备一个可用的redis
+Before that, you need a usable Redis instance.
 
 .. code-block:: console
 
@@ -48,14 +48,14 @@ Configuration
 .. code-block:: python
 
     class SimpleCaptchaConfig(BaseConfig):
-        """ 简单验证码配置 """
+        """ Simple CAPTCHA configuration """
 
         simple_captcha_cache_key = "SimpleCaptcha"  # simple captcha redis cache key
         simple_captcha_cache_key_expire = 6000  # simple captcha redis cache key expired time
 
 
     class BlockPuzzleCaptchaConfig(BaseConfig):
-        """ 滑块验证码配置 """
+        """ Slider CAPTCHA configuration """
 
         block_puzzle_captcha_cache_key = "BlockPuzzleCaptcha"  # block puzzle captcha redis cache key
         block_puzzle_captcha_cache_key_expire = 6000  # block puzzle captcha redis cache key expired time
@@ -69,7 +69,7 @@ Configuration
 
 
     class ClickWordCaptchaConfig(BaseConfig):
-        """ 文字点击验证码配置 """
+        """ Click word CAPTCHA configuration """
 
         click_word_captcha_cache_key = "ClickWordCaptcha"  # click word captcha redis cache key
         click_word_captcha_cache_key_expire = 6000  # click_word_captcha_cache_key expired time
@@ -77,10 +77,13 @@ Configuration
         click_word_captcha_font_number = 4
         click_word_captcha_font_size = 25
         background_image_root_path = "resource/defaultImages/jigsaw/original"  # click word captcha background images
-        click_word_captcha_text = "的一了是我不在人们有来他这上着个地到大里说就去子得也和那要下看天时过出小么起你都把好还多没为又可家学只以主会样年想生同老中十从自面前头道它后然走很像见两用她国动进成回什边作对开而己些现山民候经发工向事命给长水几义三声于高手知理眼志点心战二问但身方实吃做叫当住听革打呢真全才四已所敌之最光产情路分总条白话东席次亲如被花口放儿常气五第使写军吧文运再果怎定许快明行因别飞外树物活部门无往船望新带队先力完却站代员机更九您每风级跟笑啊孩万少直意夜比阶连车重便斗马哪化太指变社似士者干石满日决百原拿群究各六本思解立河村八难早论吗根共让相研今其书坐接应关信觉步反处记将千找争领或师结块跑谁草越字加脚紧爱等习阵怕月青半火法题建赶位唱海七女任件感准张团屋离色脸片科倒睛利世刚且由送切星导晚表够整认响雪流未场该并底深刻平伟忙提确近亮轻讲农古黑告界拉名呀土清阳照办史改历转画造嘴此治北必服雨穿内识验传业菜爬睡兴形量咱观苦体众通冲合破友度术饭公旁房极南枪读沙岁线野坚空收算至政城劳落钱特围弟胜教热展包歌类渐强数乡呼性音答哥际旧神座章帮啦受系令跳非何牛取入岸敢掉忽种装顶急林停息句区衣般报叶压慢叔背细"
+        click_word_captcha_text = "of a the is I am not in people have come he this on with a ground to big inside say then go child get also and that want down look sky time past out small what rise you all put good still more not for again can family learn only with main will like year think live same old middle ten from self in front head road it after then walk very like see two use her country move advance become return what side make correct open and some now mountain people wait through hair work towards matter life give long water few justice three sound at master know reason eye will point heart battle two ask but body side real eat make call when live hear change hit huh true whole just four already enemy of most light produce feeling road divide total stripe plain talk east seat next close as flower mouth put child often gas five number write army bar culture transport again fruit how decide allow fast clear go because other fly outside tree thing live department none towards ship hope new lead team first strength complete but stand on behalf member machine more nine you each wind level with laugh ah child ten thousand few straight meaning night compare level link car heavy convenient fight horse which change too refer transform society similar scholar who dry stone full day decide hundred original take group study each six this think explain stand river village eight difficult early discuss what root together let mutual research now its book sit connect should believe feel step opposite place remember will thousand look fight lead or teacher conclude block run who grass exceed word add foot tight love etc practice array fear moon green half fire law question build rush place sing sea seven woman duty piece feel accurate Zhang group house leave color face section reverse eye benefit world just and from send cut star guide evening watch enough whole recognize sound snow flow not place should and bottom deep carve flat great busy lift indeed close light talk agriculture ancient black tell world pull name yeah earth clear sun shine do history change calendar turn draw make mouth this treat north must serve rain wear inside recognize test industry vegetable climb sleep rise shape amount us observe bitter body crowd through rush together break friend spend technique meal side room extreme south gun read sand year line wild firm empty receive calculate to politics city work fall money special surround younger brother win teach hot expand package song type gradually strong number village call gender sound answer brother border old god seat help okay receive series order jump not what cow take enter shore dare drop ignore kind equip top urgent forest stop breathe sentence area clothes generally report leaf press slow uncle back fine"
 
 
-当你需要针对定制化配置操作时，你需要重写对应的属性信息，并传入对应的验证码中：demo
+When you need to customize the configuration, you need to override the corresponding properties and pass them to the CAPTCHA instance
+
+demo
+======
 
 .. code-block:: python
 
@@ -88,10 +91,10 @@ Configuration
 
     class BlockPuzzleCaptchaConfig(_baseConfig):
         font_water_text_font_size = 30
-        font_water_text = "中国传媒大学"
+        font_water_text = "Communication University of China"
 
 
-简单验证码:
+Simple CAPTCHA:
 
 .. code-block:: python
 
@@ -102,7 +105,7 @@ Configuration
     print(simple_captcha.verify({"token": "", "code": ""}))
 
 
-滑块验证码:
+Slider CAPTCHA:
 
 .. code-block:: python
 
@@ -112,7 +115,7 @@ Configuration
     print(block_captcha.get())
     print(block_captcha.verify(token="", point_json={"x": "", "y": ""}))
 
-点击文字验证码:
+Click word CAPTCHA:
 
 .. code-block:: python
 
